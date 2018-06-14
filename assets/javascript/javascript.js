@@ -17,14 +17,16 @@
         event.preventDefault();
 
         // Here we grab the text from the input box
-        
-        var searchterm = $("#searchterm").val();
-        var marticle = $("#movie-input").val();
-        var marticle = $("#movie-input").val();
-        var marticle = $("#movie-input").val();
+
+        var searchTerm = $("#searchTerm").val()
+;        var records = $("#records").val();
+        var startYear = $("#startYear").val();
+        var endYear = $("#endYear").val();
 
         // Here we construct our URL
-        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+
+        // var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+        var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json%E2%80%9C;"
 
         // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
         // and display it in the div with an id of movie-view
@@ -37,6 +39,8 @@
         }).then(function(response) {
           $("#movie-view").text(JSON.stringify(response));
         });
+
+        
 
         // -----------------------------------------------------------------------
 
