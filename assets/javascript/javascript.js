@@ -17,6 +17,10 @@
         event.preventDefault();
 
         // Here we grab the text from the input box
+        
+        var searchterm = $("#searchterm").val();
+        var marticle = $("#movie-input").val();
+        var marticle = $("#movie-input").val();
         var marticle = $("#movie-input").val();
 
         // Here we construct our URL
