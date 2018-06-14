@@ -1,4 +1,3 @@
-
 //search term
 //number of records
 //year start search
@@ -8,41 +7,42 @@
 
 //top articles area
 
+function io(argument) {
+  var x = 5;
+  var y = 5;
+  var xy = x + y;
+  console.log(xy);
+}
 
- // This .on("click") function will trigger the AJAX Call
-      $("#searchbutton").on("click", function(event) {
+io()
 
-        // event.preventDefault() can be used to prevent an event's default behavior.
-        // Here, it prevents the submit button from trying to submit a form when clicked
-        event.preventDefault();
 
-        // Here we grab the text from the input box
+$( "#submitbutton" ).click(function() {
+   event.preventDefault();
 
-        var searchTerm = $("#searchTerm").val()
-;        var records = $("#records").val();
-        var startYear = $("#startYear").val();
-        var endYear = $("#endYear").val();
+  var searchTerm = $("#search").val();
+var records = $("#number").val();
 
-        // Here we construct our URL
+var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+url += '?' + $.param({
+  'api-key': "3c51104db6cf495bbb68cdb8c3c04889",
+  'q': searchTerm ,
+  'fq': records
+  // 'begin_date': startYear,
+  // 'end_date': endYear
+});
 
-        // var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
-        var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json%E2%80%9C;"
 
-        // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
-        // and display it in the div with an id of movie-view
 
-        // ------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
 
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-          $("#movie-view").text(JSON.stringify(response));
-        });
+$.ajax({
+  url: url,
+  method: 'GET',
+}).then(function(result) {
+  console.log(result);
+  alert("worked");
+});
 
-        
+});
 
-        // -----------------------------------------------------------------------
-
-      });
-
+ 
